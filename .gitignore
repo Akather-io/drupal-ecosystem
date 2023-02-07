@@ -60,3 +60,10 @@
 /drush
 /drupal.phar
 /drupal
+
+local.nginx
+.history
+/web/adm.php
+
+/web/modules/contrib/*
+/web/themes/contrib/*

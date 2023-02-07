@@ -1,0 +1,9 @@
+
+
+wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-en.php
+
+sudo update-alternatives --config php
+
+https://www.exemplifi.io/insights/creating-a-robust-tailwindcss-pipeline-for-custom-drupal-theme
+https://tomswebstuff.com/blog/super-fast-drupal-theme-development-tailwindcss
+https://www.hashbangcode.com/article/drupal-8-theming-tailwind-css
