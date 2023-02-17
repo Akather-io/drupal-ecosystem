@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function akather_book_theme()
+{
+    return [
+        'akather_book_block' => [
+            'variables' => [
+                'data' => null,
+            ],
+        ],
+    ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function akather_book_preprocess_html(&$variables)
+{
+    $variables['#attached']['library'][] = 'akather_book/akather_book';
+}

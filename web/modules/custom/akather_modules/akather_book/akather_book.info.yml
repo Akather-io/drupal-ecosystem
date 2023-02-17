@@ -1,0 +1,10 @@
+name: "Akather Book"
+description: "Akather Book module."
+
+type: module
+core_version_requirement: ^8.9 || ^9
+
+# Information added by Drupal.org packaging script on 2023-02-14
+version: '0.0.1'
+project: 'Akather Modules'
+datestamp: 1676332800

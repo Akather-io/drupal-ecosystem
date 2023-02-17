@@ -1,0 +1,22 @@
+akather_book:
+  version: 1.x
+  css:
+    layout:
+      css/book_style.css: {}
+  js:
+    js/akather_book.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+    - akather_book/akather_book_unity_loader
+    - akather_book/akather_book_test
+
+akather_book_unity_loader:
+  version: 1.x
+  header: true
+  js:
+    js/Build/UnityLoader.js: { minified: true }
+
+akather_book_test:
+  js:
+    js/test.js: {}

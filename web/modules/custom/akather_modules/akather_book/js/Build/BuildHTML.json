@@ -1,0 +1,16 @@
+{
+"companyName": "AkatherComic",
+"productName": "BookFlip",
+"productVersion": "0.1",
+"dataUrl": "BuildHTML.data.unityweb",
+"wasmCodeUrl": "BuildHTML.wasm.code.unityweb",
+"wasmFrameworkUrl": "BuildHTML.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.40f1"
+}
