@@ -28,16 +28,15 @@ class RefTestController extends ControllerBase {
     // Get signature and address from request.
     $ref = $request->request->get('ref');
     $wref = $request->request->get('wref');
+    $uuid_str = 'edc3b8d21999422b9b7b69fde0c8d4c2';
 
-    $currentUserId = \Drupal::currentUser()->id();
-    $user = User::load($currentUserId);
+    // $currentUserId = \Drupal::currentUser()->id();
+    // $user = User::load($currentUserId);
 
-    $uuid_str = str_replace("-", "", $user->uuid());
+    // $uuid_str = str_replace("-", "", $user->uuid());
 
     $user_ref = get_user_ref($uuid_str);
-    dump($user_ref);
-    die;
-
+    dump($user_ref);die;
     return new JsonResponse($user->id());
   }
 

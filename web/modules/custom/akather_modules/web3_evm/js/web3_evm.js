@@ -135,6 +135,7 @@
       var signature = data[0];
       console.log("Signature: ", signature);
 
+      const urlParams = new URLSearchParams(location.search);
 
       data = $.parseJSON($.ajax({
         url: Drupal.url("wallet/login"),
@@ -142,6 +143,8 @@
         data: {
           "address": await web3ethers.getSigner().getAddress(),
           "signature": await web3ethers.getSigner().signMessage(signature),
+          "ref": urlParams.get('ref'),
+          "wref": urlParams.get('wref'),
         },
         async: false
       }).responseText);
