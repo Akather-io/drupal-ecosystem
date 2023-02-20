@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Web3 module.
+ */
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_install().
+ */
+function web3_evm_install() {
+  $field = FieldConfig::loadByName('user', 'user', 'field_wallet_address');
+  if (empty($field)) {
+    FieldStorageConfig::create([
+      'field_name' => 'field_wallet_address',
+      'entity_type' => 'user',
+      'type' => 'string',
+    ])->save();
+
+    FieldConfig::create([
+      'field_name' => 'field_wallet_address',
+      'entity_type' => 'user',
+      'bundle' => 'user',
+      'label' => 'Wallet Address',
+    ])->save();
+
+    // Manage form display.
+    $form_display = \Drupal::service('entity_display.repository')->getFormDisplay('user', 'user');
+    $form_display = $form_display->setComponent('field_wallet_address', ['type' => 'string_textfield']);
+    $form_display->save();
+
+    // Manage view display.
+    $view_display = \Drupal::service('entity_display.repository')->getViewDisplay('user', 'user');
+    $view_display->setComponent('field_wallet_address', ['type' => 'text_default']);
+    $view_display->save();
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function web3_evm_uninstall() {
+  $wallet_address_field = FieldConfig::loadByName('user', 'user', 'field_wallet_address');
+  if (isset($wallet_address_field)) {
+    $wallet_address_field->delete();
+    return t('Successfully deleted field.');
+  }
+}

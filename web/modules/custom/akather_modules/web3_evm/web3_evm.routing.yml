@@ -1,0 +1,23 @@
+web3_evm.signature:
+  path: '/wallet/signature'
+  defaults:
+    _controller: '\Drupal\web3_evm\Controller\WalletController::signature'
+    _title: 'Wallet Signature'
+  requirements:
+    _permission: 'access content'
+
+web3_evm.login:
+  path: '/wallet/login'
+  defaults:
+    _controller: '\Drupal\web3_evm\Controller\WalletController::login'
+    _title: 'Wallet Login'
+  requirements:
+    _permission: 'access content'
+
+web3_evm.logout:
+  path: '/wallet/logout'
+  defaults:
+    _controller: '\Drupal\web3_evm\Controller\WalletController::logout'
+    _title: 'Wallet Logout'
+  requirements:
+    _permission: 'access content'

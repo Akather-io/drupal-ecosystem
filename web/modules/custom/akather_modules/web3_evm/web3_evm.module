@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function web3_evm_theme()
+{
+    return [
+        'connect_wallet_block' => [
+            'variables' => [
+              'data' => NULL,
+            ],
+        ],
+        'evm_account_info' => [
+            'variables' => [
+              'data' => NULL,
+            ],
+        ],
+    ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function web3_evm_preprocess_html(&$variables)
+{
+    // $variables['#attached']['library'][] = 'web3_evm/web3_evm';
+}

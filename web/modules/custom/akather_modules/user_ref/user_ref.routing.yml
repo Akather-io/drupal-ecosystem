@@ -1,0 +1,7 @@
+user_ref.test_ref:
+  path: '/test_ref'
+  defaults:
+    _controller: '\Drupal\user_ref\Controller\RefTestController::index'
+    _title: 'Test Ref'
+  requirements:
+    _permission: 'access content'

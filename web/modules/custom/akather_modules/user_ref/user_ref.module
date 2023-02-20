@@ -1,0 +1,65 @@
+<?php
+use \Drupal\Core\Entity\EntityInterface;
+use Drupal\Component\Utility\Xss;
+use Drupal\Component\Utility\Unicode;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert();
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $node
+ */
+function user_ref_user_insert(EntityInterface $entity)
+{
+  $uuid_str = \Drupal::request()->query->get('ref');
+  $wallet_address = \Drupal::request()->query->get('wref');
+
+  if($user_ref = get_user_ref($uuid_str, $wallet_address)) {
+    if($entity->get('field_user_ref')) {
+      // $entity->field_user_ref[] = ['target_id' => $uidRef];
+      $entity->get('field_user_ref')->appendItem([
+        'target_id' => $user_ref->id(),
+      ]);
+      $entity->save();
+    }
+  }
+}
+
+function get_user_ref($uuid_str = NULL, $wallet_address = NULL ) {
+  $properties = [];
+
+  if (!$uuid_str && !$wallet_address) return NULL;
+
+  if($uuid_str) {
+    $uuid_str = Xss::filter($uuid_str);
+    $uuid = substr($uuid_str, 0, 8);
+    $uuid .= '-' . substr($uuid_str, 8, 4);
+    $uuid .= '-' . substr($uuid_str, 12, 4);
+    $uuid .= '-' . substr($uuid_str, 16, 4);
+    $uuid .= '-' . substr($uuid_str, 20, 12);
+    $properties['uuid'] = $uuid;
+  }
+
+  if($wallet_address) {
+    $wallet_address = Xss::filter($wallet_address);
+    $properties['field_wallet_address'] = $wallet_address;
+  }
+
+  $users = \Drupal::entityTypeManager()
+    ->getStorage('user')
+    ->loadByProperties($properties);
+
+  // $uids = \Drupal::entityQuery('user')
+  //   ->condition('field_wallet_address', $ref)
+  //   ->condition('uuid', $uuid)
+  //   ->sort('created', 'ASC')
+  //   ->execute();
+  // $uidRef = array_pop(array_reverse($uids));
+
+  // If user doesn't exist then create a new Drupal user.
+  if (empty($users)) return null;
+
+  $user = reset($users);
+
+  return $user;
+}

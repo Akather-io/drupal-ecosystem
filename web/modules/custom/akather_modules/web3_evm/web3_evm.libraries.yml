@@ -1,0 +1,37 @@
+web3_evm:
+  js:
+    js/web3_evm.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - web3_evm/jsdelivr_web3
+    - web3_evm/unpkg_web3modal
+    - web3_evm/unpkg_evm_chains
+    - web3_evm/unpkg_walletconnect
+    - web3_evm/unpkg_fortmatic
+    - web3_evm/ethers
+
+jsdelivr_web3:
+  js:
+    https://unpkg.com/web3@latest/dist/web3.min.js: { type: external, minified: true }
+
+unpkg_web3modal:
+  js:
+    https://unpkg.com/web3modal: { type: external, minified: true }
+
+unpkg_evm_chains:
+  js:
+    https://unpkg.com/evm-chains: { type: external, minified: true }
+
+unpkg_walletconnect:
+  js:
+    https://unpkg.com/@walletconnect/web3-provider: { type: external, minified: true }
+
+unpkg_fortmatic:
+  js:
+    https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js: { type: external, minified: true }
+
+ethers:
+  js:
+    https://cdn.ethers.io/lib/ethers-5.2.umd.min.js: { type: external }

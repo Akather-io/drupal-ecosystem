@@ -1,0 +1,23 @@
+<div{{ attributes }}>
+  {# {% for key,value in data %}
+  {% endfor%} #}
+  {% if data.wallet_address %}
+
+  <p>Wallet address:
+    Your wallet address:
+    <span class="wallet-address">
+      {{ data.wallet_address }}
+    </span>
+    (<a id="disconnect-wallet">disconnect</a>)
+  </p>
+  <p>Chain:
+    <span class="wallet-chain"></span>
+  </p>
+  <p>Balance:
+    <span class="wallet-balance"></span>
+  </p>
+
+  {% else %}
+  <button id="connect-wallet">Connect Wallet</button>
+  {% endif %}
+</div>
