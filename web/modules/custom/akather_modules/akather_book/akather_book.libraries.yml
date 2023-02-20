@@ -7,6 +7,7 @@ akather_book:
     js/akather_book.js: {}
   dependencies:
     - core/jquery
+    - core/drupal
     - core/drupalSettings
     - akather_book/akather_book_unity_loader
     - akather_book/akather_book_test
