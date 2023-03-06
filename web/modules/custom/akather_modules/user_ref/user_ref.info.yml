@@ -1,5 +1,6 @@
 name: "User Ref"
 description: "User Ref module."
+package: "Akather Module"
 
 type: module
 core_version_requirement: ^8.9 || ^9
