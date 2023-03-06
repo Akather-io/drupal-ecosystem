@@ -5,7 +5,7 @@
   Drupal.behaviors.akather_book = {
     attach: function (context, settings) {
 
-      console.log('Akather Book : It works!');
+      // console.log('Akather Book : It works!');
 
     }
   };

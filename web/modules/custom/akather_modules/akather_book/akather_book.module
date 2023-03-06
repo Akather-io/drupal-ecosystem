@@ -19,5 +19,5 @@ function akather_book_theme()
  */
 function akather_book_preprocess_html(&$variables)
 {
-    $variables['#attached']['library'][] = 'akather_book/akather_book';
+    // $variables['#attached']['library'][] = 'akather_book/akather_book';
 }

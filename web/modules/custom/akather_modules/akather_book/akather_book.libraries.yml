@@ -10,7 +10,7 @@ akather_book:
     - core/drupal
     - core/drupalSettings
     - akather_book/akather_book_unity_loader
-    - akather_book/akather_book_test
+    # - akather_book/akather_book_test
 
 akather_book_unity_loader:
   version: 1.x

@@ -49,6 +49,13 @@ class BookBlock extends BlockBase
             '#default_value' => isset($description['value']) ? $description['value'] : '',
         ];
 
+        $form['pre_order_link'] = [
+            '#type' => 'textfield',
+            '#title' => $this->t('Pre Order Link'),
+            '#description' => $this->t('Pre Order Link'),
+            '#default_value' => $this->configuration['pre_order_link'],
+        ];
+
         return $form;
     }
 
@@ -59,6 +66,7 @@ class BookBlock extends BlockBase
         $values = $form_state->getValues();
         $this->configuration['description'] = $values['description'];
         $this->configuration['title'] = $values['title'];
+        $this->configuration['pre_order_link'] = $values['pre_order_link'];
     }
 
     /**
@@ -80,11 +88,17 @@ class BookBlock extends BlockBase
         $data = [
             'title' => $this->configuration['title'],
             'description' => $this->configuration['description'],
+            'pre_order_link' => $this->configuration['pre_order_link'],
         ];
 
         return [
             '#theme' => 'akather_book_block',
-            '#data' => $data
+            '#attached' => [
+              'library' => [
+                'akather_book/akather_book',
+              ],
+            ],
+            '#data' => $data,
         ];
     }
 

@@ -2,6 +2,6 @@
 
   'use strict';
 
-  console.log('Test Akather Book : It works!');
+  // console.log('Test Akather Book : It works!');
 
 }(jQuery, Drupal, window, drupalSettings));
