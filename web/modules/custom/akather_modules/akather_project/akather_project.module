@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function akather_project_theme()
+{
+    return [
+        'create_project_page' => [
+            'variables' => [
+                'data' => NULL,
+                'form' => NULL,
+            ],
+        ],
+        'style_page' => [
+            'variables' => [
+                'data' => NULL,
+            ],
+        ],
+    ];
+}
