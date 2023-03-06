@@ -1,0 +1,15 @@
+akather_user.profile:
+  path: '/user/profile'
+  defaults:
+    _title: 'User Profile'
+    _controller: '\Drupal\akather_user\Controller\UserProfileController::build'
+  requirements:
+    _permission: 'access content'
+
+akather_user.login_page:
+  path: '/user/page-login'
+  defaults:
+    _title: 'User Profile'
+    _controller: '\Drupal\akather_user\Controller\UserProfileController::loginPage'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function akather_user_theme()
+{
+    return [
+        'user_profile' => [
+            'variables' => [
+              'data' => NULL,
+            ],
+        ],
+        'user_login_page' => [
+            'variables' => [
+              'data' => NULL,
+            ],
+        ],
+    ];
+}
