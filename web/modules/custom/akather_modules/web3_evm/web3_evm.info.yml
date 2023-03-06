@@ -1,5 +1,6 @@
 name: "Web3 EVM"
 description: "Web3 EVM module."
+package: "Akather Module"
 
 type: module
 core_version_requirement: ^8.9 || ^9
