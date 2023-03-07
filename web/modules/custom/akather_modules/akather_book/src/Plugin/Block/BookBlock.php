@@ -30,31 +30,31 @@ class BookBlock extends BlockBase
    * {@inheritdoc}
    */
     public function blockForm($form, FormStateInterface $form_state) {
-        $form['title'] = [
-            '#type' => 'textfield',
-            '#title' => $this->t('Title'),
-            '#description' => $this->t('Title'),
-            '#default_value' => $this->configuration['title'],
-        ];
+        // $form['title'] = [
+        //     '#type' => 'textfield',
+        //     '#title' => $this->t('Title'),
+        //     '#description' => $this->t('Title'),
+        //     '#default_value' => $this->configuration['title'],
+        // ];
 
-        $description = $this->configuration['description'];
-        $form['description'] = [
-            '#type' => 'text_format',
-            '#title' => $this->t('Description'),
-            '#format' => isset($description['format']) ? $description['format'] : 'basic_html',
-            '#allowed_formats' => ['basic_html'],
-            '#cols' => 80,
-            '#rows' => 7,
-            '#description' => $this->t('Description'),
-            '#default_value' => isset($description['value']) ? $description['value'] : '',
-        ];
+        // $description = $this->configuration['description'];
+        // $form['description'] = [
+        //     '#type' => 'text_format',
+        //     '#title' => $this->t('Description'),
+        //     '#format' => isset($description['format']) ? $description['format'] : 'basic_html',
+        //     '#allowed_formats' => ['basic_html'],
+        //     '#cols' => 80,
+        //     '#rows' => 7,
+        //     '#description' => $this->t('Description'),
+        //     '#default_value' => isset($description['value']) ? $description['value'] : '',
+        // ];
 
-        $form['pre_order_link'] = [
-            '#type' => 'textfield',
-            '#title' => $this->t('Pre Order Link'),
-            '#description' => $this->t('Pre Order Link'),
-            '#default_value' => $this->configuration['pre_order_link'],
-        ];
+        // $form['pre_order_link'] = [
+        //     '#type' => 'textfield',
+        //     '#title' => $this->t('Pre Order Link'),
+        //     '#description' => $this->t('Pre Order Link'),
+        //     '#default_value' => $this->configuration['pre_order_link'],
+        // ];
 
         return $form;
     }
