@@ -14,7 +14,7 @@
 
   $(document).ready(function () {
     const countdown = document.getElementById("countdown");
-    if (countdown !== 'undefined') {
+    if (countdown) {
       const countDown = new Date(drupalSettings.endDateTime).getTime(),
         x = setInterval(function () {
 

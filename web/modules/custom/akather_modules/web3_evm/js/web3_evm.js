@@ -1,7 +1,8 @@
 (function ($, Drupal, window) {
 
   "use strict";
-  let connectors;
+
+  let sdk;
 
   Drupal.behaviors.web3_evm = {
     attach: function (context, settings) {
@@ -9,6 +10,7 @@
   };
 
   $(document).ready(function () {
+    // console.log(connectors);
   });
 
   /**
@@ -16,11 +18,8 @@
  */
   window.addEventListener('load', async () => {
     if (window.web3) {
-      // https://wagmi.sh/examples/connect-wallet
-
-      connectors = wagmiClient.connectors;
+      // await init();
       // console.log(connectors[4]);
-
       $('#connect-wallet').click(function () {
         console.log('#connect-wallet');
         onConnect();
@@ -30,8 +29,26 @@
         console.log('#disconnect-wallet');
         onDisconnect();
       });
+
+
+      $('#claim-nft').click(function () {
+        console.log('#claim-nft');
+        claimNFT();
+      });
     }
   });
+
+  /**
+ * Setup the orchestra
+ */
+  async function init() {
+
+      // https://wagmi.sh/examples/connect-wallet
+      // connectors = wagmiClient.connectors;
+      // const signer = await fetchSigner();
+
+      // sdk = ThirdwebSDK.fromSigner(signer, "mumbai");
+  }
 
   /**
  * Connect wallet button pressed.
@@ -87,7 +104,38 @@
       async: false
     }).responseText);
 
-    window.location.reload(false);
+    // window.location.reload(false);
+    window.location.href = '/';
+  }
+
+  async function claimNFT() {
+    // try {
+
+      const signer = await fetchSigner();
+      const address = await signer.getAddress();
+      const sdk = ThirdwebSDK.fromSigner(signer, "mumbai");
+      const projectContract = drupalSettings.projectContract;
+      const contract = await sdk.getContract(projectContract, "nft-drop");
+      const quantity = 1;
+      const data = await contract.call("owner")
+      console.log(data);
+      const tx = await contract.claimTo(address, quantity);
+      const receipt = tx[0].receipt; // the transaction receipt
+      const claimedTokenId = tx[0].id; // the id of the NFT claimed
+      const claimedNFT = await tx[0].data(); // (optional) get the claimed NFT metadata
+
+      console.log(claimedTokenId);
+      console.log(receipt);
+    // } catch (e) {
+    //   console.log("Could not get a wallet connection", e);
+    //   return;
+    // }
   }
 
 }(jQuery, Drupal, window));
+
+function wait(milliseconds) {
+  return new Promise(resolve => {
+    setTimeout(resolve, milliseconds);
+  });
+}
