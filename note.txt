@@ -7,3 +7,17 @@ sudo update-alternatives --config php
 https://www.exemplifi.io/insights/creating-a-robust-tailwindcss-pipeline-for-custom-drupal-theme
 https://tomswebstuff.com/blog/super-fast-drupal-theme-development-tailwindcss
 https://www.hashbangcode.com/article/drupal-8-theming-tailwind-css
+
+
+https://stackoverflow.com/questions/8205369/installing-npm-on-aws-ec2
+https://www.tailwindawesome.com/?price=free&type=template
+https://tailwind-elements.com/docs/standard/components/video-carousel/#full-page
+https://flowbite.com/docs/getting-started/quickstart/
+https://github.com/tailwindtoolbox/Nordic-Store/blob/master/index.html
+https://github.com/davidgrzyb/tailwind-blog-template/blob/master/blog.html
+https://www.tailwindawesome.com/?price=free&type=template
+https://www.creative-tim.com/learning-lab/tailwind-starter-kit/landing
+https://www.creative-tim.com/blog/web-development/free-tailwind-css-templates-resources/
+https://dev.to/mariann93502220/30-free-tailwind-css-templates-to-kick-start-your-next-project-3igo
+
+https://www.freecodecamp.org/news/how-to-set-up-deploy-your-react-app-from-scratch-using-webpack-and-babel-a669891033d4/
