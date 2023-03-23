@@ -16,5 +16,10 @@ function akather_user_theme()
               'data' => NULL,
             ],
         ],
+        'user_kyc_page' => [
+            'variables' => [
+              'data' => NULL,
+            ],
+        ],
     ];
 }

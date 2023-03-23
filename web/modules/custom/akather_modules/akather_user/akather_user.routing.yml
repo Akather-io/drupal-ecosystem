@@ -13,3 +13,11 @@ akather_user.login_page:
     _controller: '\Drupal\akather_user\Controller\UserProfileController::loginPage'
   requirements:
     _permission: 'access content'
+
+akather_user.kyc_page:
+  path: '/user/kyc'
+  defaults:
+    _title: 'User KYC'
+    _controller: '\Drupal\akather_user\Controller\UserProfileController::pageKYC'
+  requirements:
+    _permission: 'access content'

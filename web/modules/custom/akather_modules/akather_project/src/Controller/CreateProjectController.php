@@ -15,16 +15,16 @@ class CreateProjectController extends ControllerBase {
   public function index() {
 
     /** @var \Drupal\node\NodeForm $form_object */
-    $node_form = \Drupal::entityTypeManager()
-      ->getFormObject('node', 'default');
+    // $node_form = \Drupal::entityTypeManager()
+    //   ->getFormObject('node', 'default');
     $node = \Drupal::entityTypeManager()->getStorage('node')->create(['type' => 'project']);
-    $form = \Drupal::service('entity.form_builder')->getForm($node, 'default');
+    $form = \Drupal::service('entity.form_builder')->getForm($node, 'create_project');
     // $form = \Drupal::formBuilder()->getForm(\Drupal\akather_project\Form\CreateProjectForm::class);
 
     $build['content'] = [
       '#theme' => 'create_project_page',
       '#data' => [],
-      '#form' => NULL,
+      '#form_project' => NULL,
     ];
 
     return $build;

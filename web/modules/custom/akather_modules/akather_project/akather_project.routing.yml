@@ -2,8 +2,8 @@ akather_project.create_project:
   path: '/project/create'
   defaults:
     _title: 'Create project'
-    # _form: 'Drupal\akather_project\Form\CreateProjectForm'
-    _controller: 'Drupal\akather_project\Controller\CreateProjectController::index'
+    _form: 'Drupal\akather_project\Form\CreateProjectForm'
+    # _controller: 'Drupal\akather_project\Controller\CreateProjectController::index'
   requirements:
     # _permission: 'Create Project'
     _permission: 'access content'

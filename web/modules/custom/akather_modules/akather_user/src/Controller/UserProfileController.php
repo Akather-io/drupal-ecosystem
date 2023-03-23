@@ -40,9 +40,24 @@ class UserProfileController extends ControllerBase {
    * Builds the response.
    */
   public function loginPage() {
-
+    $data = [];
     $build['content'] = [
       '#theme' => 'user_login_page',
+      '#data' => $data
+    ];
+
+    return $build;
+  }
+
+  /**
+   * Builds the response.
+   */
+  public function pageKYC() {
+
+    $data = [];
+
+    $build['content'] = [
+      '#theme' => 'user_kyc_page',
       '#data' => $data
     ];
 

@@ -1,21 +1,76 @@
 <?php
-
+// https://www.digitalnadeem.com/drupal/how-to-render-a-form-in-custom-template-in-drupal-8-and-9/
 /**
  * Implements hook_theme().
  */
 function akather_project_theme()
 {
     return [
-        'create_project_page' => [
-            'variables' => [
-                'data' => NULL,
-                'form' => NULL,
-            ],
-        ],
+        // 'create_project_page' => [
+        //     'variables' => [
+        //         'data' => NULL,
+        //         'form_project' => NULL,
+        //     ],
+        // ],
         'style_page' => [
             'variables' => [
                 'data' => NULL,
             ],
         ],
+        'create_project_page' => [
+            'render element' => 'form',
+        ],
     ];
 }
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * https://gorannikolovski.com/snippet/how-programmatically-render-entity-form
+ * https://www.webomelette.com/render-custom-entity-form-modes-programatically-drupal-8
+ * Alters the entity definition and adds our own form handlers.
+ */
+function akather_project_entity_type_alter(&$entity_types) {
+  $form_modes = \Drupal::service('entity_display.repository')
+    ->getAllFormModes();
+
+  foreach ($form_modes as $entity_type => $display_modes) {
+    if ($entity_type !== 'node') {
+      continue;
+    }
+
+    $type = $entity_types[$entity_type];
+    foreach ($display_modes as $machine_name => $form_display) {
+      if (isset($type->getHandlerClasses()['form']['default'])) {
+        $default_handler_class = $type->getHandlerClasses()['form']['default'];
+        $type->setFormClass($machine_name, $default_handler_class);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+// function akather_project_entity_type_alter(array &$entity_types) {
+//   // We get all form modes, for all entities, and loop through them.
+//   $form_modes = \Drupal::service('entity_display.repository')->getAllFormModes();
+//   foreach ($form_modes as $entity_type => $display_modes) {
+//     if ($entity_type !== 'node') {
+//       // We are only interested in adding a handler to the Node entity.
+//       continue;
+//     }
+
+//     $node_type = $entity_types[$entity_type];
+//     foreach ($display_modes as $machine_name => $form_display) {
+//       if ($machine_name !== 'create_project') {
+//         // We are only interested in adding this form mode to the definition.
+//         continue;
+//       }
+//       // We get the default handler class. It will be enough for us.
+//       $default_handler_class = $node_type->getHandlerClasses()['form']['default'];
+//       // We set the form class, keyed by the machine name of our custom form mode.
+//       $node_type->setFormClass($machine_name, $default_handler_class);
+//     }
+//   }
+// }
